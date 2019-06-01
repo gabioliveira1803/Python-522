@@ -28,4 +28,4 @@ if __name__ == '__main__':
     current_module = os.path.dirname(os.path.curdir)
     sys.path.append(current_module)
 
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)
