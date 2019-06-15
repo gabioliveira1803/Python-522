@@ -1,11 +1,15 @@
 import flask
 import docker
 
+import services.login_required
+
 blueprint = flask.Blueprint('docker', __name__)
 
 connection = docker.DockerClient()
 
 @blueprint.route('/docker', methods=[ 'GET' ])
+@services.login_required.log_access
+@services.login_required.login_required
 def get_docker():    
 	
 	context = {
